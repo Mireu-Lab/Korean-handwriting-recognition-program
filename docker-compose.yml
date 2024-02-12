@@ -4,7 +4,8 @@ services:
   text_to_gestures_model_test:
     build: .
     ports:
-      - 8080:80
+      - "2200:22"
+    user: $DOCKER_USER:$DOCKER_GROUP
     deploy:
       resources:
         reservations:
@@ -12,8 +13,6 @@ services:
             - driver: nvidia
               count: 0
               capabilities: [gpu]
-<<<<<<< Updated upstream
-=======
     volumes:
-      - '../dataset_dir:/workspace/dataset_dir'
->>>>>>> Stashed changes
+      - '../dataset_dir:/workspace/dataset_dir:rw'
+      - '~/.ssh:/home/Hosting/.ssh:ro'

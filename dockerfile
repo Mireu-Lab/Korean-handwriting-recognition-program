@@ -1,11 +1,30 @@
-FROM tensorflow/tensorflow:nightly-gpu-jupyter
+FROM tensorflow/tensorflow:latest-gpu
 
-RUN mkdir /workspace
+# Setup Program
+RUN apt-get update &&\ 
+    apt-get -y upgrade &&\
+    mkdir -p /run/sshd &&\
+    apt-get install -y sudo\
+    vim\
+    unzip\
+    nano\ 
+    wget\ 
+    net-tools\ 
+    git\
+    openssh-server
+
+# User Setup
+ENV PASSWORD "Hosting"
+
+RUN useradd -ms /bin/bash -d /home/Hosting Hosting&&\
+    usermod -aG sudo Hosting
+
+RUN mkdir /workspace &&\
+    chmod 777 /workspace
+
 WORKDIR /workspace
-
 COPY . .
 
-ENV PASSWORD='jupyter1234'
-RUN mkdir dataset_dir
+RUN ssh-keygen -A
 
-CMD jupyter lab --ip=0.0.0.0 --port=80 --NotebookApp.token=${PASSWORD} --allow-root
+CMD echo "Hosting":$PASSWORD | chpasswd && /usr/sbin/sshd -D
