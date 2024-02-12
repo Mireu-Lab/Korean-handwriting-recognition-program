@@ -19,10 +19,10 @@ ENV PASSWORD "Hosting"
 RUN useradd -ms /bin/bash -d /home/Hosting Hosting&&\
     usermod -aG sudo Hosting
 
-RUN mkdir /workspace &&\
-    chmod 777 /workspace
+RUN mkdir /home/Hosting/workspace &&\
+    chmod 777 /home/Hosting/workspace
 
-WORKDIR /workspace
+WORKDIR /home/Hosting/workspace
 COPY . .
 
 RUN ssh-keygen -A
