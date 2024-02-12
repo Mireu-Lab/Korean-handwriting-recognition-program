@@ -12,3 +12,8 @@ services:
             - driver: nvidia
               count: 0
               capabilities: [gpu]
+<<<<<<< Updated upstream
+=======
+    volumes:
+      - '../dataset_dir:/workspace/dataset_dir'
+>>>>>>> Stashed changes
