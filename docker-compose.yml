@@ -14,5 +14,6 @@ services:
               count: 0
               capabilities: [gpu]
     volumes:
-      - '../dataset_dir:/workspace/dataset_dir:rw'
+      - '../dataset_dir:/home/Hosting/workspace/dataset_dir:rw'
+      - './:/home/Hosting/workspace:rw'
       - '~/.ssh:/home/Hosting/.ssh:ro'

@@ -23,8 +23,6 @@ RUN mkdir /home/Hosting/workspace &&\
     chmod 777 /home/Hosting/workspace
 
 WORKDIR /home/Hosting/workspace
-COPY . .
-
 RUN ssh-keygen -A
 
 CMD echo "Hosting":$PASSWORD | chpasswd && /usr/sbin/sshd -D
