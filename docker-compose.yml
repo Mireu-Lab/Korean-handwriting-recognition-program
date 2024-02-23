@@ -4,16 +4,16 @@ services:
   text_to_gestures_model_test:
     build: .
     ports:
-      - "2200:22"
+      - "2000:22"
     user: $DOCKER_USER:$DOCKER_GROUP
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: 0
-              capabilities: [gpu]
+    # deploy:
+    #  resources:
+    #    reservations:
+    #      devices:
+    #        - driver: nvidia
+    #          count: 0
+    #          capabilities: [gpu]
     volumes:
-      - '../dataset_dir:/home/Hosting/workspace/dataset_dir:rw'
+      - '/home/limmireu/Disk/DataSet/객체인식_연구/13.한국어글자체:/home/Hosting/workspace/dataset_dir:rw'
       - './:/home/Hosting/workspace:rw'
       - '~/.ssh:/home/Hosting/.ssh:ro'
