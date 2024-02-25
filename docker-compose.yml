@@ -14,6 +14,6 @@ services:
     #          count: 0
     #          capabilities: [gpu]
     volumes:
-      - '/home/limmireu/Disk/DataSet/객체인식_연구/13.한국어글자체:/home/Hosting/workspace/dataset_dir:rw'
+      - '../dataset_dir/13.한국어글자체:/home/Hosting/workspace/dataset_dir:rw'
       - './:/home/Hosting/workspace:rw'
       - '~/.ssh:/home/Hosting/.ssh:ro'

@@ -1,4 +1,6 @@
-FROM tensorflow/tensorflow:latest-gpu
+FROM nvidia/cuda:12.0.0-cudnn8-runtime-ubuntu22.04
+
+RUN ln -snf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
 
 # Setup Program
 RUN apt-get update &&\ 
@@ -11,7 +13,9 @@ RUN apt-get update &&\
     wget\ 
     net-tools\ 
     git\
-    openssh-server
+    openssh-server\
+    python3\
+    python3-pip
 
 # User Setup
 ENV PASSWORD "Hosting"
