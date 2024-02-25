@@ -26,7 +26,7 @@ for dir in tqdm(dirList):
         dir_label_tensor.append([tensor_label]) # 레이블 2차원 row 추가
 
         imageData = Image.open(f"""../dataset_dir/image/{dir}/{file}""").convert("L") # 이미지 tensor 데이터 출력
-        imageData = imageData.resize((200, 200)) # 이미지 업스케일링
+        imageData = imageData.resize((50, 50)) # 이미지 업스케일링
 
         file_tensor = np.array(imageData) # 이미지 tensor 변환
         file_tensor = file_tensor.reshape(-1) # tensor 1차원 변환
