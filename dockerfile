@@ -1,4 +1,4 @@
-FROM nvidia/cuda:12.0.0-cudnn8-runtime-ubuntu22.04
+FROM tensorflow/tensorflow:latest-gpu
 
 RUN ln -snf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
 
@@ -7,15 +7,20 @@ RUN apt-get update &&\
     apt-get -y upgrade &&\
     mkdir -p /run/sshd &&\
     apt-get install -y sudo\
-    vim\
-    unzip\
-    nano\ 
-    wget\ 
-    net-tools\ 
-    git\
-    openssh-server\
-    python3\
-    python3-pip
+                        vim\
+                        unzip\
+                        nano\ 
+                        wget\ 
+                        net-tools\ 
+                        git\
+                        openssh-server
+
+RUN apt-get install \
+                sox\
+                ffmpeg\
+                libcairo2\
+                libcairo2-dev\
+                texlive-full
 
 # User Setup
 ENV PASSWORD "Hosting"
