@@ -1,4 +1,4 @@
-FROM tensorflow/tensorflow:latest-gpu
+FROM tensorflow/tensorflow:2.13.0-gpu
 
 RUN ln -snf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
 
@@ -15,12 +15,11 @@ RUN apt-get update &&\
                         git\
                         openssh-server
 
-RUN apt-get install \
-                sox\
-                ffmpeg\
-                libcairo2\
-                libcairo2-dev\
-                texlive-full
+RUN apt-get install -y sox\
+	                ffmpeg\
+	                libcairo2\
+	                libcairo2-dev\
+	                texlive-full
 
 # User Setup
 ENV PASSWORD "Hosting"
