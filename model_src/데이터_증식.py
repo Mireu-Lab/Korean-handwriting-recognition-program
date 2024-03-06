@@ -40,10 +40,13 @@ def fileProliferation(dir, file):
 import os
 from tqdm import tqdm
 
-dirList = ["가", "나", "다", "라", "마", "바", "아", "자", "차", "카", "타", "파", "하"]
+dirList = os.listdir("../dataset_dir/new_image") # 이미지 레이어 리스트
+dirList = sorted(dirList) # 가나다 순으로 정렬
+
+procs = []
 
 for dir in tqdm(dirList):
     fileList = os.listdir(f"../dataset_dir/new_image/{dir}/") # 디랙토리 파일 리스트
-    
+
     for file in fileList:
         fileProliferation(dir, file)
