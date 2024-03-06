@@ -4,7 +4,7 @@ services:
   korean-handwriting-recognition-program:
     build: .
     ports:
-      - "2001:22"
+      - "2020:22"
     user: $DOCKER_USER:$DOCKER_GROUP
     deploy:
      resources:
