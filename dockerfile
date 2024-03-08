@@ -1,4 +1,4 @@
-FROM tensorflow/tensorflow:2.13.0-gpu
+FROM nvidia/cuda:12.2.2-base-ubuntu22.04
 
 RUN ln -snf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
 
